@@ -3,6 +3,7 @@ from __future__ import annotations
 from time import perf_counter
 from typing import Any
 from typing_extensions import Dict
+from .core import compute_extended_quality_flag, compute_extended_quality_flags
 
 import pandas as pd
 from fastapi import FastAPI, File, HTTPException, UploadFile
@@ -246,7 +247,6 @@ async def quality_from_csv(file: UploadFile = File(...)) -> QualityResponse:
     )
 
 
-from .core import compute_extended_quality_flags  # Добавьте этот импорт
 
 @app.post(
     "/quality-flags-from-csv",
